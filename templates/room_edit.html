@@ -1,0 +1,22 @@
+{%extends "base.html"%}
+
+{% block content %}
+
+<form method="POST" action="{{ url_for('new_room')}}">
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label" name="username">ROOM ID</label>
+        <input type="text" name="room_id_edit" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label" name="username">ROOM</label>
+        <input type="text" name="room_edit" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    </div>
+
+
+    <button type="submit" class="btn btn-secondary" name="create" value="create">Submit</button>
+</form>
+
+<br><br>
+
+
+{% endblock %}

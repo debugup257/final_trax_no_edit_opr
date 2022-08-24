@@ -1,0 +1,67 @@
+{%extends "base.html"%}
+
+{% block content %}
+
+<div class="container">
+
+    <a href="{{ url_for('new_user')}}"><button type="button" class="btn btn-primary btn-lg btn-block">Create New User</button>
+</a>
+</div>
+
+<br><br>
+
+<div class="container">
+
+    <a href="{{ url_for('new_product')}}"><button type="button" class="btn btn-primary btn-lg btn-block">Products</button>
+</a>
+</div>
+
+<br><br>
+
+<div class="container">
+
+    <a href="{{ url_for('new_customer')}}"><button type="button" class="btn btn-primary btn-lg btn-block">Customers</button>
+</a>
+</div>
+<br><br>
+
+<div class="container">
+
+    <a href="{{ url_for('new_door_pattern')}}"><button type="button" class="btn btn-primary btn-lg btn-block">Door Pattern</button>
+</a>
+</div>
+
+<br><br>
+
+<div class="container">
+
+    <a href="{{ url_for('new_profile')}}"><button type="button" class="btn btn-primary btn-lg btn-block">PROFILE</button>
+</a>
+</div>
+
+<br><br>
+
+<div class="container">
+
+    <a href="{{ url_for('new_room')}}"><button type="button" class="btn btn-primary btn-lg btn-block">ROOM</button>
+</a>
+</div>
+
+<br><br>
+
+<div class="container">
+
+    <a href="{{ url_for('new_collection')}}"><button type="button" class="btn btn-primary btn-lg btn-block">COLLECTION</button>
+</a>
+</div>
+
+<br><br>
+
+<div class="container">
+
+    <a href="{{ url_for('new_highlight')}}"><button type="button" class="btn btn-primary btn-lg btn-block">HIGHLIHT</button>
+</a>
+</div>
+
+
+{% endblock %}

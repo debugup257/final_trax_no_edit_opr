@@ -1,0 +1,7 @@
+Flask==2.1.2
+gunicorn==19.9.0
+Jinja2
+wtforms
+psycopg2
+flask_wtf
+datetime

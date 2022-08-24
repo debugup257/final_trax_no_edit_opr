@@ -1,0 +1,39 @@
+{%extends "base.html"%}
+
+{% block content %}
+
+<form method="POST" action="{{ url_for('customer_edit')}}">
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label" name="username">CUSTOMER ID</label>
+        <input type="text" name="customer_id_edit" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label" name="username">CUSTOMER NAME</label>
+        <input type="text" name="customer_name_edit" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label" name="username">CUSTOMER ADDRESS</label>
+        <input type="text" name="customer_address_edit" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label" name="username">CUSTOMER TYPE</label>
+        <input type="text" name="customer_type_edit" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">CUSTOMER GST</label>
+        <input name="customer_gst_edit" type="text" class="form-control" id="exampleInputPassword1">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">CUSTOMER CONTACT</label>
+        <input name="customer_contact_edit" type="text" class="form-control" id="exampleInputPassword1">
+    </div>
+
+    <button type="submit" class="btn btn-secondary" name="create" value="create">Submit</button>
+</form>
+
+<br><br>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,227 @@
+{%extends "base.html"%}
+
+{% block content %}
+
+<form method="POST" action="{{ url_for('new_opr_generation')}}">
+
+<div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Kommandor Order No.</label>
+    <input name="kommandor_order_no" type="text" class="form-control" id="exampleInputPassword1">
+</div>
+<div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Slido Order No.</label>
+    <input name="slido_order_no" type="text" class="form-control" id="exampleInputPassword1">
+</div>
+
+
+<div class="mb-3">
+    <select name="product" class="custom-select custom-select-lg mb-3">
+        <option selected>Product</option>
+        {% for i in product_list%}
+        <option value="{{i[0]}}">{{i[0]}}</option>
+        {%endfor%}
+    </select>
+</div>
+
+
+<div class="mb-3">
+    <select name="door_pattern" class="custom-select custom-select-lg mb-3">
+        <option selected>Door Pattern</option>
+        {% for i in door_pattern_list%}
+        <option value="{{i[0]}}">{{i[0]}}</option>
+        {%endfor%}
+    </select>
+</div>
+
+<div class="mb-3">
+    <select name="profile" class="custom-select custom-select-lg mb-3">
+        <option selected>Profile</option>
+        {% for i in profile_list%}
+        <option value="{{i[0]}}">{{i[0]}}</option>
+        {%endfor%}
+    </select>
+</div>
+
+<div class="mb-3">
+    <select name="collection" class="custom-select custom-select-lg mb-3">
+        <option selected>Collection</option>
+        {% for i in collection_list%}
+        <option value="{{i[0]}}">{{i[0]}}</option>
+        {%endfor%}
+    </select>
+</div>
+
+<div class="mb-3">
+    <select name="highlight" class="custom-select custom-select-lg mb-3">
+        <option selected>Highlight</option>
+        {% for i in highlight_list%}
+        <option value="{{i[0]}}">{{i[0]}}</option>
+        {%endfor%}
+    </select>
+</div>
+
+<div class="mb-3">
+    <select name="match_sample" class="custom-select custom-select-lg mb-3">
+        <option selected>Match Customer Sample</option>
+        <option value="yes">Yes</option>
+        <option value="no">No</option>
+    </select>
+</div>
+
+
+<div class="mb-3">
+    <select name="lock" class="custom-select custom-select-lg mb-3">
+        <option selected>No. Of Lock</option>
+        <option value="0">0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+    </select>
+</div>
+
+<div class="mb-3">
+    <select name="soft_close" class="custom-select custom-select-lg mb-3">
+        <option selected>No. Of Soft Close</option>
+        <option value="yes">0</option>
+        <option value="no">1</option>
+        <option value="no">2</option>
+        <option value="no">3</option>
+        <option value="no">4</option>
+    </select>
+</div>
+
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Height</label>
+        <input name="height" type="text" class="form-control" id="exampleInputPassword1">
+    </div>
+
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Width</label>
+        <input name="width" type="text" class="form-control" id="exampleInputPassword1">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Doors Per Set</label>
+        <input name="doors_per_set" type="text" class="form-control" id="exampleInputPassword1">
+    </div>
+
+    <div class="mb-3">
+        <select name="room" class="custom-select custom-select-lg mb-3">
+            <option selected>Room</option>
+            {% for i in room_list%}
+            <option value="{{i[0]}}">{{i[0]}}</option>
+            {%endfor%}
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Kommandor Basic Value</label>
+        <input name="kommandor_basic_value" type="text" class="form-control" id="exampleInputPassword1">
+    </div>
+
+
+
+    <button name="add_order" value="add_order"type="submit" class="btn btn-secondary" >Add order</button>
+    <button name="generate_opr" value="generate_opr"type="submit" class="btn btn-secondary" >Add order</button>
+
+
+</form>
+
+
+
+            
+
+<table class="table table-bordered" name="{{session['opr_id']}}">
+    <thead>
+      <tr>
+        <th scope="col" colspan="18">SLIDO ORDER PRODUCTION REQUEST</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th colspan="2">Customer Name</th>
+        <td colspan="10">{{session["customer_opr"]}}</td>
+        <th colspan="2">OPR ID</th>
+        <td colspan="2">{{session["opr_id"]}}</td>
+        <th colspan="1">Date</th>
+        <td colspan="2">{{session["date"]}}</td>
+
+      </tr>
+
+      <tr>
+        <th colspan="2">Delivery Address</th>
+        <td colspan="10">{{session["delivery_address"]}}</td>
+        <th colspan="2">Flat No.</th>
+        <td colspan="2">{{session["flat_number"]}}</td>
+        <th colspan="1">Service Lift Available</th>
+        <td colspan="2">{{session["lift_available"]}}</td>
+
+      </tr>
+
+      <tr>
+        <th colspan="2">Contact Number</th>
+        <td colspan="7">{{session["customer_contact"]}}</td>
+        <th colspan="2">Floor No.</th>
+        <td colspan="2">{{session["floor_number"]}}</td>
+        <th colspan="1">Preferred Delivery Time</th>
+        <td colspan="2">{{session["preferred_delivery_time"]}}</td>
+        <th colspan="1">Cargo Veicle Time</th>
+        <td colspan="2">{{session["cargo_vehicle_time"]}}</td>
+
+      </tr>
+
+      <tr>
+        <th>OPR ID</th>
+        <th>kOMMANDOR ORDER NO.</th>
+        <th>SLIDO ORDER NO.</th>
+        <th>PRODUCT</th>
+        <th>DOOR PATTERN</th>
+        <th>PROFILE</th>
+        <th>COLLECTION</th>
+        <th>HIGHLIGHT</th>
+        <th>MATCH SAMPLE</th>
+        <th>LOCK</th>
+        <th>SOFT CLOSING</th>
+        <th>HEIGHT</th>
+        <th>WIDTH</th>
+        <th>DOORS/SET</th>
+        <th>Basic price(K)</th>
+        <th>Discounted Price</th>
+        <th>GST 18%</th>
+        <th>Final Price</th>
+
+        {%for i in opr_data_list%}
+            <tr>
+                <td>{{i[17]}}</td>
+                <td>{{i[0]}}</td>
+                <td>{{i[1]}}</td>
+                <td>{{i[2]}}</td>
+                <td>{{i[3]}}</td>
+                <td>{{i[4]}}</td>
+                <td>{{i[5]}}</td>
+                <td>{{i[6]}}</td>
+                <td>{{i[7]}}</td>
+                <td>{{i[8]}}</td>
+                <td>{{i[9]}}</td>
+                <td>{{i[10]}}</td>
+                <td>{{i[11]}}</td>
+                <td>{{i[12]}}</td>
+                <td>{{i[13]}}</td>
+                <td>{{i[14]}}</td>
+                <td>{{i[15]}}</td>
+                <td>{{i[16]}}</td>
+
+            </tr>
+            {%endfor%}
+
+
+
+
+      </tr>
+
+
+
+
+    </tbody>
+  </table>
+</div>
+
+
+{% endblock %}

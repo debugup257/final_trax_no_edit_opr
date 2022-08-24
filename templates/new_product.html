@@ -1,0 +1,88 @@
+{%extends "base.html"%}
+
+{% block content %}
+
+<form method="POST" action="{{ url_for('new_product')}}">
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label" name="username">Product ID</label>
+        <input type="text" name="product_id" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Product Name</label>
+        <input name="password" type="product_name" class="form-control" id="exampleInputPassword1">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Product Height</label>
+        <input name="product_height" type="text" class="form-control" id="exampleInputPassword1">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Product Width</label>
+        <input name="product_width" type="text" class="form-control" id="exampleInputPassword1">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Product Weight</label>
+        <input name="product_weight" type="text" class="form-control" id="exampleInputPassword1">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Product Cost</label>
+        <input name="product_cost" type="text" class="form-control" id="exampleInputPassword1">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Product MRP</label>
+        <input name="product_mrp" type="text" class="form-control" id="exampleInputPassword1">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Product Description</label>
+        <input name="product_description" type="text" class="form-control" id="exampleInputPassword1">
+    </div>
+    <button type="submit" class="btn btn-secondary" name="create" value="create">Submit</button>
+</form>
+
+<br><br>
+
+<div>
+    <table class="table table-dark">
+        <thead>
+            <tr>
+                <th scope="col">Product ID</th>
+                <th scope="col">Product Name</th>
+                <th scope="col">Product Height</th>
+                <th scope="col">Product Width</th>
+                <th scope="col">Product Weight</th>
+                <th scope="col">Product Cost</th>
+                <th scope="col">Product MRP</th>
+                <th scope="col">Product Description</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in product %}
+            <TR>
+                <TD class="col">{{i[0]}}</TD>
+                <TD class="col">{{i[1]}}</TD>
+                <TD class="col">{{i[2]}}</TD>
+                <TD class="col">{{i[3]}}</TD>
+                <TD class="col">{{i[4]}}</TD>
+                <TD class="col">{{i[5]}}</TD>
+                <TD class="col">{{i[6]}}</TD>
+                <TD class="col">{{i[7]}}</TD>
+                <TD class="col">
+                    <form action="{{ url_for('new_product')}}"method="POST">
+                        <input type="hidden" name="username_table" value="{{i[0]}}"></input>
+                        <button type="submit" name="edit" value="edit">EDIT</button>
+                        <button type="submit" name="delete" value="delete">DELETE</button>
+                    </form>
+
+
+                </TD>
+            </TR>
+            {% endfor %}
+
+            
+
+        </tbody>
+    </table>
+</div>
+
+
+{% endblock %}

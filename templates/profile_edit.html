@@ -1,0 +1,22 @@
+{%extends "base.html"%}
+
+{% block content %}
+
+<form method="POST" action="{{ url_for('new_profile')}}">
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label" name="username">PROFILE ID</label>
+        <input type="text" name="profile_id_edit" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label" name="username">PROFILE</label>
+        <input type="text" name="profile_edit" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    </div>
+
+
+    <button type="submit" class="btn btn-secondary" name="create" value="create">Submit</button>
+</form>
+
+<br><br>
+
+
+{% endblock %}

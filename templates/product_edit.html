@@ -1,0 +1,41 @@
+{%extends "base.html"%}
+
+{% block content %}
+
+<form method="POST" action="{{ url_for('product_edit')}}">
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label" name="username">Product ID</label>
+        <input type="text" name="product_id_edit" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Product Name</label>
+        <input name="password" type="product_name_edit" class="form-control" id="exampleInputPassword1">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Product Height</label>
+        <input name="product_height_edit_edit" type="text" class="form-control" id="exampleInputPassword1">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Product Width</label>
+        <input name="product_width_edit" type="text" class="form-control" id="exampleInputPassword1">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Product Weight</label>
+        <input name="product_weight_edit" type="text" class="form-control" id="exampleInputPassword1">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Product Cost</label>
+        <input name="product_cost_edit" type="text" class="form-control" id="exampleInputPassword1">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Product MRP</label>
+        <input name="product_mrp_edit" type="text" class="form-control" id="exampleInputPassword1">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Product Description</label>
+        <input name="product_description_edit" type="text" class="form-control" id="exampleInputPassword1">
+    </div>
+    <button type="submit" class="btn btn-secondary" name="create" value="create">Submit</button>
+</form>
+
+{% endblock %}
